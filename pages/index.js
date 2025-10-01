@@ -19,7 +19,7 @@ export default function Home({ summary }) {
   return (
     <div className="max-w-3xl mx-auto p-4 space-y-6">
       <h1 className="text-3xl font-bold text-center">ClearView.News</h1>
-      <div className="text-center text-gray-500">{sampleData.date} • Thema: {sampleData.topic}</div>
+      <div className="text-center text-gray-500">{date} • Thema: {topic}</div>
 
       <div className="p-4 border rounded">
         <h2 className="text-xl font-semibold mb-2">🧠 Neutrale Tageszusammenfassung</h2>    
