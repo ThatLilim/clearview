@@ -1,3 +1,13 @@
+export async function getServerSideProps() {
+  const res = await fetch('https://clearview-news.vercel.app/api/summary');
+  const data = await res.json();
+
+  return {
+    props: {
+      summary: data.summary || "Keine Zusammenfassung verfügbar.",
+    },
+  };
+}
 import React, { useState } from "react";
 
 const sampleData = {
@@ -24,7 +34,7 @@ const sampleData = {
   sources: ["AP", "Reuters", "Al Jazeera", "NYT", "ZDF"]
 };
 
-export default function Home() {
+export default function Home({ summary }) {
   const [side, setSide] = useState("neutral");
 
   return (
@@ -33,11 +43,11 @@ export default function Home() {
       <div className="text-center text-gray-500">{sampleData.date} • Thema: {sampleData.topic}</div>
 
       <div className="p-4 border rounded">
-        <h2 className="text-xl font-semibold mb-2">🧠 Neutrale Tageszusammenfassung</h2>
-        <ul className="list-disc list-inside space-y-1">
-          {sampleData.neutralSummary.map((line, i) => <li key={i}>{line}</li>)}
-        </ul>
-        <p className="mt-2 text-sm text-gray-500">Quellen: {sampleData.sources.join(", ")}</p>
+        <h2 className="text-xl font-semibold mb-2">🧠 Neutrale Tageszusammenfassung</h2>    
+<p className="text-base whitespace-pre-line">{summary}</p>
+<p className="mt-2 text-sm text-gray-500">
+  Quelle: GPT-4 (OpenAI) + NewsAPI.org
+</p>  
       </div>
 
       <div className="flex justify-between gap-4">
