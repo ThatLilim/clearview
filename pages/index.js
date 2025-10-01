@@ -10,29 +10,8 @@ export async function getServerSideProps() {
 }
 import React, { useState } from "react";
 
-const sampleData = {
-  date: "1. Oktober 2025",
-  topic: "Gaza",
-  neutralSummary: [
-    "In der Nacht kam es erneut zu Raketenbeschuss in mehreren Regionen.",
-    "Die UN warnt vor einer Eskalation der humanitären Lage.",
-    "Israel und Hamas äußerten sich gegenseitig ablehnend zu neuen Verhandlungen."
-  ],
-  leftArticles: [
-    { title: "Massive humanitäre Krise in Rafah", source: "taz" },
-    { title: "Netanyahu verliert Rückhalt", source: "Guardian" }
-  ],
-  rightArticles: [
-    { title: "Israel verteidigt sich gegen Terror", source: "Welt" },
-    { title: "Biden unter Druck", source: "NZZ" }
-  ],
-  timetable: [
-    { time: "13:00", event: "UN-Pressekonferenz (🔴 Livestream)" },
-    { time: "15:00", event: "Hamas spricht in Doha" },
-    { time: "18:00", event: "Israelisches Parlament tagt" }
-  ],
-  sources: ["AP", "Reuters", "Al Jazeera", "NYT", "ZDF"]
-};
+const date = "1. Oktober 2025";
+const topic = "Gaza";
 
 export default function Home({ summary }) {
   const [side, setSide] = useState("neutral");
